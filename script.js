@@ -25,10 +25,10 @@ function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function makeForecastItemByTemplate(PreviousForecast, PreviousProbability) {
+function makeForecastItemByTemplate(previousForecast, previousProbability) {
     const forecastItem = forecastTemplate.content.cloneNode(true);
-    forecastItem.querySelector('h3').textContent = PreviousForecast;
-    forecastItem.querySelector('p').textContent = PreviousProbability;
+    forecastItem.querySelector('h3').textContent = previousForecast;
+    forecastItem.querySelector('p').textContent = previousProbability;
     return forecastItem;
 }
 
@@ -38,7 +38,7 @@ function makeForecast() {
         forecastsList.prepend(forecast);
         newForecast.textContent = "";
     }
-    let predictionNumber = getRandomInteger(0, 5);
+    const predictionNumber = getRandomInteger(0, 5);
     let predictionText = "";
     switch (predictionNumber) {
         case 0:
